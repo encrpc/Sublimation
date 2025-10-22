@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublimation </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        company: '#333f48',  /* Pantone 432C */
+                        lightgray: '#e5e5e5'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+    <custom-navbar></custom-navbar>
+
+    <!-- Company Themed Ad Box -->
+    <div id="adBox" class="fixed bottom-6 right-6 w-96 bg-white rounded-2xl shadow-2xl border border-lightgray transform transition-all duration-500 z-50 cursor-pointer hover:shadow-3xl hover:scale-105">
+        <div class="relative overflow-hidden rounded-2xl">
+            <!-- Close Button -->
+            <button id="closeAd" class="absolute top-3 right-3 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center shadow-lg hover:bg-gray-200 hover:scale-110 transition-all duration-300 z-10">
+                <i data-feather="x" class="w-4 h-4"></i>
+            </button>
+            
+            <!-- Header -->
+            <div class="bg-company text-white p-5 rounded-t-2xl">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold">Sublimation Magic</h2>
+                        <p class="text-sm opacity-90 mt-1">Transform Your Vision <br> Unlimited Design Possibilities</p>
+                    </div>
+                    <div class="bg-white/20 rounded-full p-2">
+                        <i data-feather="sparkles" class="w-5 h-5"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video Container (1:1 aspect) -->
+            <div class="relative bg-lightgray rounded-lg overflow-hidden mx-4 mt-4 mb-2">
+                <div class="w-full pt-[100%] relative">
+                    <video id="adVideo" autoplay loop muted playsinline class="absolute top-0 left-0 w-full h-full object-cover rounded-lg">
+                        <source src="0.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="p-4">
+
+
+               <button id="learnMoreBtn" class="w-full bg-company hover:bg-[#111827] text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+    Learn More
+</button>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Overlay Modal -->
+    <div id="adModal" class="fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 hidden">
+        <div class="bg-white w-full h-full relative">
+            <!-- Close Button -->
+           
+<button id="closeModal" class="absolute top-6 right-6 bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg 
+    hover:bg-white hover:text-red-600 transition-colors duration-200 z-10">
+                <i data-feather="x" class="w-5 h-5"></i>
+            </button>
+            <!-- Modal Content -->
+            <iframe id="modalIframe" src="26.html" class="w-full h-full" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+
+        const adBox = document.getElementById('adBox');
+        const closeAd = document.getElementById('closeAd');
+        const adModal = document.getElementById('adModal');
+        const closeModal = document.getElementById('closeModal');
+        const learnMoreBtn = document.getElementById('learnMoreBtn');
+
+        // Close ad box
+        closeAd.addEventListener('click', (e) => {
+            e.stopPropagation();
+            adBox.style.display = 'none';
+        });
+
+        // Open full-screen modal on ad box click
+        adBox.addEventListener('click', () => {
+            adModal.style.display = 'flex';
+        });
+
+        // Open modal on Learn More button click
+        learnMoreBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            adModal.style.display = 'flex';
+        });
+
+        // Close modal
+        closeModal.addEventListener('click', () => {
+            adModal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>

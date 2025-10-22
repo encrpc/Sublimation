@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Encore Custom — Sublimation Printing</title>
+  <meta name="description" content="Encore Custom — Sublimation printing for teamwear and lifestyle apparel. Process videos, capabilities, and quote CTA." />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    :root {
+      --brand: #333f48;
+      --accent: #9ca3af;
+      --text-primary: #e5e7eb;   /* Headings */
+      --text-secondary: #c0c5cc; /* Body text */
+    }
+
+    .fabric-texture {
+      background-image: linear-gradient(transparent 0 6px, rgba(0,0,0,0.01) 6px),
+                        linear-gradient(90deg, rgba(255,255,255,0.02) 0 1px, transparent 1px);
+    }
+
+    .glass { background: rgba(255,255,255,0.04); backdrop-filter: blur(6px); }
+    .aspect-9-16 { aspect-ratio: 9/16; }
+    .btn-primary { background: var(--brand); color: white; transition: all 0.3s ease; }
+    .btn-primary:hover { background: linear-gradient(90deg, var(--brand), #222831); }
+
+    /* Refined text colors */
+    p, li, blockquote, .text-gray-200, .text-gray-300, .text-gray-400 {
+      color: var(--text-secondary) !important;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--text-primary);
+    }
+
+    /* Accent hover for section headings or links */
+    h3:hover, h4:hover, a:hover {
+      color: var(--accent);
+      transition: color 0.3s ease;
+    }
+  </style>
+</head>
+
+<body class="antialiased text-gray-100 bg-gray-900">
+  <div class="min-h-screen fabric-texture">
+
+    <!-- HERO -->
+    <header class="relative h-[75vh] flex items-center justify-center overflow-hidden">
+      <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline poster="/images/hero-poster.jpg">
+        <source src="/videos/hero-loop.mp4" type="video/mp4">
+      </video>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60"></div>
+
+      <div class="relative z-10 container mx-auto px-6 text-center">
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight max-w-3xl mx-auto">The Art of Sublimation</h1>
+        <p class="mt-4 text-lg md:text-xl max-w-2xl mx-auto">From vibrant teamwear to lifestyle apparel — permanent color, limitless creativity, and professional production.</p>
+
+        <div class="mt-8 flex items-center justify-center gap-4">
+          <a href="" class="btn-primary px-5 py-3 rounded-2xl shadow-lg">Request a Custom Quote</a>
+          <a href="" class="border border-white/10 px-5 py-3 rounded-2xl">Design Concept Gallery</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- WHAT IS SUBLIMATION -->
+    <section id="what-is" class="container mx-auto px-6 py-16 md:py-24">
+      <div class="grid md:grid-cols-2 gap-10 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">What is Sublimation Printing?</h2>
+          <p class="mt-4">Sublimation printing uses heat and pressure to convert dye into gas, infusing ink directly into fabric fibers. The result is full-color, breathable graphics that won't crack, peel, or fade — ideal for team uniforms, custom lifestyle apparel, and performance wear.</p>
+
+          <ul class="mt-6 list-disc list-inside space-y-2">
+            <li>Long-lasting color</li>
+            <li>Unlimited design possibilities</li>
+            <li>Breathable & comfortable finish</li>
+            <li>Eco-friendly process (low waste)</li>
+          </ul>
+        </div>
+
+        <div class="rounded-xl overflow-hidden shadow-2xl bg-black/40 glass">
+          <video class="w-full h-full object-cover" controls playsinline poster="">
+            <source src="7.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS STEPS -->
+    <section id="process" class="bg-gray-800/60 py-12 md:py-20">
+      <div class="container mx-auto px-6">
+        <h3 class="text-2xl font-bold">Our Process — Step by Step</h3>
+        <p class="mt-2 max-w-2xl">A transparent, quality-focused workflow. Each stage combines design creativity and technical precision to deliver results that exceed expectations.</p>
+
+        <div class="mt-8 grid md:grid-cols-4 gap-6">
+          <article class="p-6 bg-gray-900/50 rounded-2xl border border-white/5">
+            <h4 class="font-semibold">Custom Graphic Design</h4>
+            <p class="mt-2 text-sm">Our creative team provides multiple design options with unlimited revisions, ensuring each client receives something beyond expectations — capturing the true identity of every team or brand.</p>
+          </article>
+
+          <article class="p-6 bg-gray-900/50 rounded-2xl border border-white/5">
+            <h4 class="font-semibold">Large-Format Printing</h4>
+            <p class="mt-2 text-sm">We use high-speed printers and industry-standard papers to ensure accurate color reproduction, vibrant tones, and exceptional print quality in every run.</p>
+          </article>
+
+          <article class="p-6 bg-gray-900/50 rounded-2xl border border-white/5">
+            <h4 class="font-semibold">Heat Transfer</h4>
+            <p class="mt-2 text-sm">Precise heat pressing fuses the printed design into the fabric for permanent, vivid, and durable color that stands up to everyday wear and performance demands.</p>
+          </article>
+
+          <article class="p-6 bg-gray-900/50 rounded-2xl border border-white/5">
+            <h4 class="font-semibold">Finishing & QC</h4>
+            <p class="mt-2 text-sm">We inspect seams, color accuracy, and final presentation to ensure every order meets our standards.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIDEO GALLERY -->
+    <section id="video-gallery" class="container mx-auto px-6 py-16">
+      <h3 class="text-2xl md:text-3xl font-bold">Process Video Gallery</h3>
+      <p class="mt-2">Experience our production in motion — from design to final inspection.</p>
+
+      <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="rounded-xl overflow-hidden bg-black/40">
+          <video class="w-full aspect-9-16 object-cover" controls playsinline poster="">
+            <source src="1.mp4" type="video/mp4">
+          </video>
+          <div class="p-3 text-sm">Designing</div>
+        </div>
+
+        <div class="rounded-xl overflow-hidden bg-black/40">
+          <video class="w-full aspect-9-16 object-cover" controls playsinline poster="">
+            <source src="2.mp4" type="video/mp4">
+          </video>
+          <div class="p-3 text-sm">Printing</div>
+        </div>
+
+        <div class="rounded-xl overflow-hidden bg-black/40">
+          <video class="w-full aspect-9-16 object-cover" controls playsinline poster="">
+            <source src="3.mp4" type="video/mp4">
+          </video>
+          <div class="p-3 text-sm">Heat Transfer</div>
+        </div>
+
+        <div class="rounded-xl overflow-hidden bg-black/40">
+          <video class="w-full aspect-9-16 object-cover" controls playsinline poster="">
+            <source src="4.mp4" type="video/mp4">
+          </video>
+          <div class="p-3 text-sm">Finishing & QC</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE -->
+    <section id="capabilities" class="bg-gradient-to-b from-black/60 to-gray-900 py-12 md:py-20">
+      <div class="container mx-auto px-6">
+        <h3 class="text-2xl font-bold">Why Choose Encore Custom</h3>
+        <div class="mt-6 grid md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-gray-900/40 border border-white/5">
+            <h4 class="font-semibold">End-to-End Solutions</h4>
+            <p class="mt-2 text-sm">From design to delivery — we handle bulk team orders and one-off lifestyle pieces with the same care.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-gray-900/40 border border-white/5">
+            <h4 class="font-semibold">Custom Team Colors</h4>
+            <p class="mt-2 text-sm">We match team colors precisely (Pantone-friendly workflows) and manage color consistency across production runs.</p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-gray-900/40 border border-white/5">
+            <h4 class="font-semibold">Performance Fabrics</h4>
+            <p class="mt-2 text-sm">We work with high-quality polyester blends and performance fabrics suitable for sports and daily wear.</p>
+          </div>
+        </div>
+
+        <div class="mt-8 flex flex-col md:flex-row gap-4 items-center">
+          <a href="" class="btn-primary px-6 py-3 rounded-full">Request a Custom Quote</a>
+          <a href="" class="border border-white/10 px-6 py-3 rounded-full">Share any Design Idea</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="container mx-auto px-6 py-12">
+      <h3 class="text-2xl font-bold">Trusted by Teams & Brands</h3>
+      <div class="mt-6 grid md:grid-cols-3 gap-6">
+        <blockquote class="p-6 bg-gray-900/40 rounded-2xl border border-white/5">
+          <p>"The team at Encore continues to impress. We at XR Soccer training know we are going to get quality fabric that the players like, and designs that the organization loves, within our budget and shipped on time. We know that the team has taken the time to get to know and perfect the designs we like, so the collaboration is effortless and the product never fails to meet expectations. And, they are quick to help you out anytime you need them. Truly a great partnership."</p>
+          <footer class="mt-4 text-sm">— Xavi R, XR Soccer Training</footer>
+        </blockquote>
+        <blockquote class="p-6 bg-gray-900/40 rounded-2xl border border-white/5">
+          <p>"USA Lacrosse and Encore have worked with one another for a number of years. This relationship has been successful in helping programs get the uniforms that are needed the right way! Encore has helped us put together uniforms for our ULA organizations and other programs that work with us by walking them through the process of the type of uniforms, material, the overall concept, as well as working with them and their budget. This is a company that will do their best to make sure you end up with what you wanted and needed."</p>
+          <footer class="mt-4 text-sm">— Donovan Dennis, US Lacrosse</footer>
+        </blockquote>
+        <blockquote class="p-6 bg-gray-900/40 rounded-2xl border border-white/5">
+          <p>"The customer service Encore has provided our canoe club has gone and beyond our expectations. From top to bottom Encore helped us every step of the way from design through order competition. I can't imagine an easier more fluid system for any team that wants to get gear made without the hassle of having to run the project themselves. Encore worked with us to get the materials specifically right for both the water and sun. Product is superb!"</p>
+          <footer class="mt-4 text-sm">— Tim O'Dwyer, He'e Nalu O'Marin</footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- CTA FOOTER -->
+    <footer class="py-12 bg-gradient-to-r from-gray-900 to-black">
+      <div class="container mx-auto px-6 text-center">
+        <h3 class="text-2xl md:text-3xl font-bold">Bring Your Designs to Life</h3>
+        <p class="mt-2">We handle every step — from design to final manufacturing — all in-house, ensuring consistent quality and precision in every product.</p>
+        <div class="mt-6 flex justify-center gap-4">
+          <a class="btn-primary px-6 py-3 rounded-full">Request a Custom Quote</a>
+          <a class="border border-white/10 px-6 py-3 rounded-full">Custom Label Branding</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
