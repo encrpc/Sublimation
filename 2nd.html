@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sublimation </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        company: '#333f48',  /* Pantone 432C */
+                        lightgray: '#e5e5e5'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+
+body {
+    /* Background gradient fallback */
+    background: linear-gradient(to bottom right, #f9fafb, #f3f4f6);
+    /* Background image */
+    background-image: url('bg.png'); /* Replace with your image URL */
+    background-size: cover;       /* Make it cover the full screen */
+    background-position: center;  /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling */
+}
+        /* Brush Reveal Box Styles */
+        .image-box {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: #e8e8e8;
+        }
+        .image-box canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 1rem;
+            display: block;
+        }
+        #topCanvas {
+            cursor: url('https://cdn-icons-png.flaticon.com/512/168/168873.png') 16 16, crosshair;
+        }
+    </style>
+</head>
+<body class="bg-[url('bg.png')] bg-cover bg-center bg-no-repeat min-h-screen">
+
+    <custom-navbar></custom-navbar>
+
+    <!-- Company Themed Ad Box -->
+    <div id="adBox" class="fixed bottom-6 right-6 w-96 bg-white rounded-2xl shadow-2xl border border-lightgray transform transition-all duration-500 z-50 cursor-pointer hover:shadow-3xl hover:scale-105">
+        <div class="relative overflow-hidden rounded-2xl">
+            <!-- Close Button -->
+            <button id="closeAd" class="absolute top-3 right-3 bg-white text-black rounded-full w-8 h-8 flex items-center justify-center shadow-lg hover:bg-gray-200 hover:scale-110 transition-all duration-300 z-10">
+                <i data-feather="x" class="w-4 h-4"></i>
+            </button>
+            
+            <!-- Header -->
+            <div class="bg-company text-white p-5 rounded-t-2xl">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-2xl font-bold">✅Sublimatable Product</h2>
+                        <p class="text-sm opacity-90 mt-1">ᯓ★ Unlimited Design Possibilities
+                    </div>
+                    <div class="bg-white/20 rounded-full p-2">
+                        <i data-feather="sparkles" class="w-5 h-5"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Video / Brush Reveal Container (1:1 aspect) -->
+            <div class="relative bg-lightgray rounded-lg overflow-hidden mx-4 mt-4 mb-2">
+                <div class="w-full pt-[100%] relative">
+                    <!-- Brush Reveal Box -->
+
+                    <div class="image-box" id="revealBox">
+
+                        <canvas id="bottomCanvas"></canvas>
+                        <canvas id="topCanvas"></canvas>
+ <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+        </svg>
+        <!-- Header Text -->
+        <h2 class="text-2xl font-bold">Sublimatable Product</h2>
+    </div>
+    <div class="bg-white/20 rounded-full p-2">
+        <i data-feather="sparkles" class="w-5 h-5"></i>
+    </div>
+
+    <!-- Bottom Center Text -->
+    <p class="absolute bottom-2 left-1/2 transform -translate-x-1/2 text-sm opacity-90"><br>ᯓ★ Transform Your Vision</p>
+                    </div>
+
+                </div>
+
+            </div>
+          
+            <!-- CTA Button -->
+            <div class="p-4">
+                <button id="learnMoreBtn" class="w-full bg-company hover:bg-[#111827] text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                    Learn More
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Overlay Modal -->
+    <div id="adModal" class="fixed inset-0 bg-black bg-opacity-95 flex items-center justify-center z-50 hidden">
+        <div class="bg-white w-full h-full relative">
+            <!-- Close Button -->
+            <button id="closeModal" class="absolute top-6 right-6 bg-red-600 text-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg 
+                hover:bg-white hover:text-red-600 transition-colors duration-200 z-10">
+                <i data-feather="x" class="w-5 h-5"></i>
+            </button>
+            <!-- Modal Content -->
+            <iframe id="modalIframe" src="26.html" class="w-full h-full" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <custom-footer></custom-footer>
+
+    <script src="components/navbar.js"></script>
+    <script src="components/footer.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Feather Icons -->
+    <script>
+        feather.replace();
+    </script>
+
+    <!-- Brush Reveal Script -->
+    <script>
+        const box = document.getElementById('revealBox');
+        const bottomCanvas = document.getElementById('bottomCanvas');
+        const bottomCtx = bottomCanvas.getContext('2d');
+        const topCanvas = document.getElementById('topCanvas');
+        const topCtx = topCanvas.getContext('2d');
+
+        const bottomImage = new Image();
+        const topImage = new Image();
+
+        bottomImage.src = '2.png'; // Replace with your bottom image URL
+        topImage.src = '1.png';     // Replace with your top image URL
+
+        let width, height;
+        let imgDrawParams = {};
+        const brushRadius = 60;
+        let imagesLoaded = 0;
+
+        function checkAllLoaded() {
+            imagesLoaded++;
+            if (imagesLoaded === 2) {
+                resizeCanvas();
+                drawBothImages();
+            }
+        }
+
+        bottomImage.onload = checkAllLoaded;
+        topImage.onload = checkAllLoaded;
+
+        function resizeCanvas() {
+            width = box.offsetWidth;
+            height = box.offsetHeight;
+            bottomCanvas.width = width;
+            bottomCanvas.height = height;
+            topCanvas.width = width;
+            topCanvas.height = height;
+            calculateDrawParams();
+        }
+
+        function calculateDrawParams() {
+            const imgRatio = topImage.width / topImage.height;
+            const canvasRatio = width / height;
+            let drawWidth, drawHeight, offsetX, offsetY;
+
+            if (canvasRatio > imgRatio) {
+                drawHeight = height;
+                drawWidth = imgRatio * height;
+                offsetX = (width - drawWidth) / 2;
+                offsetY = 0;
+            } else {
+                drawWidth = width;
+                drawHeight = width / imgRatio;
+                offsetX = 0;
+                offsetY = (height - drawHeight) / 2;
+            }
+
+            imgDrawParams = { drawWidth, drawHeight, offsetX, offsetY };
+        }
+
+        function drawBothImages() {
+            bottomCtx.clearRect(0, 0, width, height);
+            topCtx.clearRect(0, 0, width, height);
+            bottomCtx.drawImage(bottomImage, imgDrawParams.offsetX, imgDrawParams.offsetY, imgDrawParams.drawWidth, imgDrawParams.drawHeight);
+            topCtx.globalCompositeOperation = 'source-over';
+            topCtx.drawImage(topImage, imgDrawParams.offsetX, imgDrawParams.offsetY, imgDrawParams.drawWidth, imgDrawParams.drawHeight);
+        }
+
+        function erase(x, y) {
+            const gradient = topCtx.createRadialGradient(x, y, 0, x, y, brushRadius);
+            gradient.addColorStop(0, 'rgba(0,0,0,1)');
+            gradient.addColorStop(1, 'rgba(0,0,0,0)');
+            topCtx.globalCompositeOperation = 'destination-out';
+            topCtx.fillStyle = gradient;
+            topCtx.beginPath();
+            topCtx.arc(x, y, brushRadius, 0, Math.PI * 2);
+            topCtx.fill();
+        }
+
+        topCanvas.addEventListener('mousemove', e => {
+            const rect = topCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            erase(x, y);
+        });
+
+        topCanvas.addEventListener('mouseleave', drawBothImages);
+
+        window.addEventListener('resize', () => {
+            resizeCanvas();
+            drawBothImages();
+        });
+
+        // Ad Box and Modal functionality
+        const adBox = document.getElementById('adBox');
+        const closeAd = document.getElementById('closeAd');
+        const adModal = document.getElementById('adModal');
+        const closeModal = document.getElementById('closeModal');
+        const learnMoreBtn = document.getElementById('learnMoreBtn');
+
+        closeAd.addEventListener('click', (e) => {
+            e.stopPropagation();
+            adBox.style.display = 'none';
+        });
+
+        adBox.addEventListener('click', () => {
+            adModal.style.display = 'flex';
+        });
+
+        learnMoreBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            adModal.style.display = 'flex';
+        });
+
+        closeModal.addEventListener('click', () => {
+            adModal.style.display = 'none';
+        });
+    </script>
+</body>
+</html>
